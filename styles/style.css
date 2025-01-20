@@ -1,0 +1,13 @@
+header {
+    background-color: blue;
+    color: white;
+}
+
+.logo {
+    color: white;
+}
+
+#main {
+    background-color: red;
+    color: white;
+}
