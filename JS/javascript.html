@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
 <body>
     
-    <h1 class="nadpis">Ahoj světe</h1>
+    <h1 id="nadpis" class="flex text-3xl font-bold underline">Ahoj světe</h1>
 
+    <button id="btn" class="bg-green-500 px-4 py-2 rounded text-white">Schovat nadpis</button>
+
+
+
+    <button class="bg-green-500 px-4 py-2 rounded text-white" type="button" id="otevrit">Otevřít okno</button>
+
+    <dialog id="dialog" class="bg-white px-8 px-4 rounded-xl">
+        <h1 class="text-lg font bold my-8">Jsem nadpis modlaniho okna</h1>
+
+        <p>Obsah vyskakovacího okna.</p>
+
+        <button class="bg-red-500 px-4 py-2 rounded text-white" type="button" id="zavrit">Zavřít okno</button>
+    </dialog>
+
+
+    <div class="m-8">
+        <input type="text" id="name" class="border-2  rounded-lg">
+        <p class="text-red-500 text-xs" style="display: none" id="error-message">Validační chyba</p>
+    </div>
 
     <script src="script.js" />
 </body>

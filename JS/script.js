@@ -63,21 +63,21 @@ let vypocteno = secti(7, 8);
 
 if (1 < 2) {
     console.log('1 je menší než 2');
-}else{
+} else {
     console.log('1 není menší než 2');
 }
 
-if (1<2){
+if (1 < 2) {
     console.log('1 je menší než 2');
-}else if(1<3){
+} else if (1 < 3) {
     console.log('1 je menší než 3');
-}else if(1<3){
+} else if (1 < 3) {
     console.log('1 je menší než 3');
-}else if(1<3){
+} else if (1 < 3) {
     console.log('1 je menší než 3');
-}else if(1<3){
+} else if (1 < 3) {
     console.log('1 je menší než 3');
-}else{
+} else {
     console.log('1 je menší než 3');
 }
 
@@ -107,114 +107,142 @@ if (1 < 2) {
     */
 
 
-    let pole = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+let pole = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-    let novahodnota = pole[6];
+let novahodnota = pole[6];
 
-    let poleJmen = [
-        'John', 
-        'Jane', 
-        'Jack', 
-        'Jill'
-    ];
-
-
-    poleJmen[2] = "Jackie";
+let poleJmen = [
+    'John',
+    'Jane',
+    'Jack',
+    'Jill'
+];
 
 
-    let polePoli = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-    ];
-
-    polePoli[1][2];
+poleJmen[2] = "Jackie";
 
 
-    let poleRuznychDatovychTypu = [
-        1,
-        'John',
-        true,
-        [1, 2, 3]
-    ];
+let polePoli = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+polePoli[1][2];
 
 
-    let person = {
+let poleRuznychDatovychTypu = [
+    1,
+    'John',
+    true,
+    [1, 2, 3]
+];
+
+
+let person = {
+    jmeno: 'John',
+    prijmeni: 'Doe',
+    vek: 30,
+    pohlavi: 'muž',
+    zamestnan: true,
+    fullname: this.jmeno + ' ' + this.prijmeni,
+};
+
+person.jmeno;
+person.vek;
+person.fullname;
+
+person.jmeno = 'Jane';
+
+person.jmeno;
+
+
+let poleObejktu = [
+    {
         jmeno: 'John',
         prijmeni: 'Doe',
         vek: 30,
         pohlavi: 'muž',
-        zamestnan: true,
-        fullname: this.jmeno + ' ' + this.prijmeni,
-    };
+        zamestnan: true
+    },
+    {
+        jmeno: 'Jane',
+        prijmeni: 'Doe',
+        vek: 28,
+        pohlavi: 'žena',
+        zamestnan: false
+    }
+];
 
-    person.jmeno ;
-    person.vek;
-    person.fullname;
-
-    person.jmeno = 'Jane';
-
-    person.jmeno;
+poleObejktu[0].vek;
 
 
-    let poleObejktu = [
+let element = {
+    tag: 'div',
+    text: 'Ahoj světe!',
+    class: 'container',
+    id: 'element',
+    style: 'color: red;',
+    children: [
         {
-            jmeno: 'John',
-            prijmeni: 'Doe',
-            vek: 30,
-            pohlavi: 'muž',
-            zamestnan: true
+            tag: 'p',
+            text: 'Lorem ipsum',
+            class: 'paragraph bg-gray-500',
+            id: 'paragraph',
+            style: 'font-size: 16px;'
         },
         {
-            jmeno: 'Jane',
-            prijmeni: 'Doe',
-            vek: 28,
-            pohlavi: 'žena',
-            zamestnan: false
+            tag: 'a',
+            text: 'Klikni na mě',
+            href: 'https://www.seznam.cz',
+            class: 'link',
+            id: 'link',
+            style: 'text-decoration: none;'
         }
-    ];
+    ],
 
-    poleObejktu[0].vek;
-
-
-    let element = {
-        tag: 'div',
-        text: 'Ahoj světe!',
-        class: 'container',
-        id: 'element',
-        style: 'color: red;',
-        children: [
-            {
-                tag: 'p',
-                text: 'Lorem ipsum',
-                class: 'paragraph bg-gray-500',
-                id: 'paragraph',
-                style: 'font-size: 16px;'
-            },
-            {
-                tag: 'a',
-                text: 'Klikni na mě',
-                href: 'https://www.seznam.cz',
-                class: 'link',
-                id: 'link',
-                style: 'text-decoration: none;'
-            }
-        ],
-
-        getText: function() {
-            return this.text;
-        }
-    }  
-
-    element.getText();
-
-    
-    let nadpisElement = document.getElementsByClassName('nadpis');
+    getText: function () {
+        return this.text;
+    }
+}
 
 
 
+let nadpis = document.getElementById('nadpis');
 
-nadpisElement[0].style.display = "none";
+//nadpis.style.display = 'none';
+
+const otevrit = document.getElementById('otevrit');
+const zavrit = document.getElementById('zavrit');
+const dialog = document.getElementById('dialog');
+
+let otevriOkno = (event) => {
+    dialog.showModal();
+};
+
+otevrit.addEventListener('click', otevriOkno);
+
+zavrit.addEventListener('click', (e) => {
+    console.log(e);
+    dialog.close();
+});
+
+
+let input = document.getElementById('name');
+
+input.addEventListener('keyup', (e)=>{
+    let value = e.target.value;
+    if(value.length  < 8){
+       document.getElementById('error-message').style.display = "block";
+    }else{
+        document.getElementById('error-message').style.display = "none";
+    }
+});
+
+
+
+
+
 
 
 

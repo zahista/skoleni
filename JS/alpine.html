@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body>
+    <h1>hello world! </h1>
+
+    <nav class="w-full p-4 bg-zinc-100" x-data="{open: false}">
+
+        <div class="relative" @click.away="open = ! open">
+            <button class="hover:underline font-bold" @click="open = ! open">Nabídka</button>
+
+            <ul x-on:keyup.escape.window="open = false" x-show="open"
+                class=" absolute top-6 left-0 bg-white rounded-lg border border-gray-200 shadow  pl-2 pr-6 py-2">
+                <li>Kariéra</li>
+                <li>Kontakty</li>
+                <li>O nás</li>
+            </ul>
+        </div>
+
+    </nav>
+
+
+    <div x-data="{ message: '' }">
+        <input type="text" x-model="message">
+
+        <span class="text-green-600" x-show="message.length > 8">Toto je validní heslo</span>
+    </div>
+
+
+    <div x-data="{value: '', message: 'Heslo je ....' , validate: () => { 
+        console.log(this.value);
+    }}">
+
+    <form method="post" action="/"  @submit.prevent="validate">
+        <input type="text" name="" id="" x-model="value">
+        <span x-show="value.length < 8" x-text="message"></span>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+
+</body>
+
+</html>
